@@ -25,9 +25,9 @@ Replace /usr/local/bin/tibercad with the actual path to the tibercad binary on y
 
 You can also execute the .tib file using a Python script, which is helpful for automation or integration with other tools:
 
+# Run a TiberCAD .tib script
 import subprocess
 
-# Run a TiberCAD .tib script
 tib_file = "diode_1D.tib"
 tib_exec = "/usr/local/bin/tibercad"
 
