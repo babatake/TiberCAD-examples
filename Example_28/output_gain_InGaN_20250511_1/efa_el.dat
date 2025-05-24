@@ -1,0 +1,12 @@
+# efaschroedinger eigenstates (efa_el)
+# Index Particle EigenEnergy     Occupation  FermiLevel Temperature
+      0      el       5.72048    7.94984e-97              0         300
+      1      el       5.80556    2.95821e-98              0         300
+      2      el       5.92914   2.48276e-100              0         300
+      3      el       5.96664   5.82174e-101              0         300
+      4      el       6.02921   5.17419e-102              0         300
+      5      el       6.03618   3.95169e-102              0         300
+      6      el        6.0899   4.94597e-103              0         300
+      7      el       6.09825   3.58092e-103              0         300
+      8      el       6.11705   1.73059e-103              0         300
+      9      el       6.12239   1.40743e-103              0         300

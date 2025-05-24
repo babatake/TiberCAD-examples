@@ -1,0 +1,66 @@
+Variables {
+    Vbias = 0.3
+}
+
+Device debug_qw {
+    meshfile = quantum_well_2D2.msh
+    mesh_units = 1e-6
+
+    Region barrier {
+        material = AlGaAs
+        x = 0.3
+        Doping {
+            density = 1e20
+            type = donor
+            level = 0.025
+        }
+    }
+
+    Region well {
+        material = GaAs
+        Doping {
+            density = 1e17
+            type = donor
+            level = 0.025
+        }
+    }
+}
+
+Contact cathode {
+    region = barrier
+    voltage = $Vbias
+    type = ohmic
+}
+
+Contact anode {
+    region = barrier
+    voltage = 0.0
+    type = ohmic
+}
+
+Module driftdiffusion {
+    name = dd
+    regions = (barrier, well)
+    plot = (Potential, ElectronDensity, HoleDensity, CurrentDensity)
+    save_state = true
+
+    Solver {
+        max_iterations = 300
+        relative_tolerance = 1e-8
+        step_tolerance = 1e-2
+
+        LinearSolver petsc {
+            ksp_type = gmres
+            preconditioner = ilu
+        }
+    }
+}
+
+Simulation {
+    temperature = 300
+    verbose = 3
+    solve = (dd)
+    resultpath = debug_min_output
+    output_format = vtk
+}
+

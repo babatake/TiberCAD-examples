@@ -1,0 +1,1963 @@
+
+Log start: Sun May 11 23:45:38 2025
+
+
+Writing log to output_gain_InGaN/quantum_well_2D_gain2.log.0
+tiberCAD release 3.4.0 (rev. 5645, x86_64-linux)
+
+Input file: quantum_well_2D_gain2.tib
+
+Initialize global simulation options
+  Simulation temperature: 300 K
+  Database search path  : /usr/local/tibercad-3.4.0/materials
+  Module library path   : .:/usr/local/tibercad-3.4.0/x86_64-linux/modules
+  Log file              : output_gain_InGaN/quantum_well_2D_gain2.log.0
+
+Parallelization
+  MPI communicator size : 1
+  OMP threads           : 16
+
+
+Setup mesh
+  Reading mesh file 'quantum_well_2D2.msh ...
+    mesh reading time: 0h 0m 0.0018s
+    mesh preparation time: 0h 0m 0.00091s
+    bd_regions preparation time: 0h 0m 2.7e-05s
+
+    mesh units          : 1e-06 m
+    mesh dimension      :       2
+    number of nodes     :     704
+    number of elements  :    1314
+    number of subdomains:       5
+    number of boundaries:       2
+
+Create materials ...
+    BondMap progress  done.
+  Added material GaN for region 'p_layer' (mesh regions 1)
+    (using datafile /usr/local/tibercad-3.4.0/materials/GaN.dat)
+    Bravais lattice : hexagonal (wz)
+    a = 3.189, c = 5.185
+    x growth direction : (-1 2 -1 0)
+    y growth direction : (0 0 0 1)
+    z growth direction : (1 0 -1 0)
+    Euler angles : alpha = -30, beta = -90, gamma = 90
+  AlGaN is an alloy with components AlN and GaN and molar fraction of AlN 0.2.
+    BondMap progress  done.
+    BondMap progress  done.
+    BondMap progress  done.
+  Added material AlGaN for region 'barrier_p' (mesh regions 2)
+    (using datafile /usr/local/tibercad-3.4.0/materials/AlGaN.dat)
+    alloy with 0.2 AlN, 0.8 GaN
+    Bravais lattice : hexagonal (wz)
+    a = 3.1736, c = 5.1444
+    x growth direction : (-1 2 -1 0)
+    y growth direction : (0 0 0 1)
+    z growth direction : (1 0 -1 0)
+    Euler angles : alpha = -30, beta = -90, gamma = 90
+  InGaN is an alloy with components InN and GaN and molar fraction of InN 0.15.
+    BondMap progress  done.
+    BondMap progress  done.
+    BondMap progress  done.
+  Added material InGaN for region 'well' (mesh regions 3)
+    (using datafile /usr/local/tibercad-3.4.0/materials/InGaN.dat)
+    alloy with 0.15 InN, 0.85 GaN
+    Bravais lattice : hexagonal (wz)
+    a = 3.24225, c = 5.26495
+    x growth direction : (-1 2 -1 0)
+    y growth direction : (0 0 0 1)
+    z growth direction : (1 0 -1 0)
+    Euler angles : alpha = -30, beta = -90, gamma = 90
+  AlGaN is an alloy with components AlN and GaN and molar fraction of AlN 0.2.
+    BondMap progress  done.
+    BondMap progress  done.
+    BondMap progress  done.
+  Added material AlGaN for region 'barrier_n' (mesh regions 4)
+    (using datafile /usr/local/tibercad-3.4.0/materials/AlGaN.dat)
+    alloy with 0.2 AlN, 0.8 GaN
+    Bravais lattice : hexagonal (wz)
+    a = 3.1736, c = 5.1444
+    x growth direction : (-1 2 -1 0)
+    y growth direction : (0 0 0 1)
+    z growth direction : (1 0 -1 0)
+    Euler angles : alpha = -30, beta = -90, gamma = 90
+    BondMap progress  done.
+  Added material GaN for region 'n_layer' (mesh regions 5)
+    (using datafile /usr/local/tibercad-3.4.0/materials/GaN.dat)
+    Bravais lattice : hexagonal (wz)
+    a = 3.189, c = 5.185
+    x growth direction : (-1 2 -1 0)
+    y growth direction : (0 0 0 1)
+    z growth direction : (1 0 -1 0)
+    Euler angles : alpha = -30, beta = -90, gamma = 90
+Creation of materials done.
+
+Setting up simulation of type 'driftdiffusion' ...
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/driftdiffusion.so)
+  Creating bulk models... 
+    Region: p_layer
+    (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/ddbulk_default.so)
+    Region: barrier_p
+    Region: well
+    Region: barrier_n
+    Region: n_layer
+
+Setting up simulation of type 'efaschroedinger' ...
+  Creating bulk models... 
+    Region: well
+
+Setting up simulation of type 'efaschroedinger' ...
+  Creating bulk models... 
+    Region: well
+
+Setting up simulation of type 'opticskp' ...
+  Creating bulk models... 
+    Region: well
+
+Setting up simulation of type 'sweep' ...
+
+Setting up bulk models ...
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/permittivity_constant.so)
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/band_properties.so)
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/mobility_constant.so)
+    (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/density_of_states_bulk.so)
+
+*** Warning: found unused options in block Physics: effective_mass
+
+*** Warning: found unused options in block Physics: effective_mass
+
+*** Warning: found unused options in block Physics: effective_mass
+
+Setting up lower dimensional (boundary) models ...
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for dd (driftdiffusion)
+MPI: rank 0 of communicator with size 1
+MPI: solver parallelized on 1 processes
+
+Available solution variables:
+------------------------------------------------------------------
+Name                     Units          Type      Association Plot
+------------------------------------------------------------------
+Ec                       eV             real      nodal       n
+Ev                       eV             real      nodal       n
+eQFermi                  eV             real      nodal       y
+hQFermi                  eV             real      nodal       y
+ElPotential              V              real      nodal       n
+Ec0                      eV             real      nodal       n
+Ev0                      eV             real      nodal       n
+Eg                       eV             real      nodal       n
+ConductionBands          eV             n-tuple   cell        n
+ValenceBands             eV             n-tuple   cell        n
+eDensity                 cm^-3          real      nodal       n
+hDensity                 cm^-3          real      nodal       n
+ChargeDensity            cm^-3          real      nodal       n
+eMobility                cm^2/(V*s)     real      nodal       n
+hMobility                cm^2/(V*s)     real      nodal       n
+eConductivity            S/cm           real      nodal       n
+hConductivity            S/cm           real      nodal       n
+ElField                  V/cm           vector    cell        n
+Polarization             C/m^2          vector    cell        n
+Displacement             C/m^2          vector    cell        n
+CurrentDensity           A/cm^2         vector    cell        y
+eCurrentDensity          A/cm^2         vector    cell        n
+hCurrentDensity          A/cm^2         vector    cell        n
+IonizedDonors            cm^-3          real      nodal       n
+IonizedAcceptors         cm^-3          real      nodal       n
+IonizedElectronTraps     cm^-3          real      nodal       n
+IonizedHoleTraps         cm^-3          real      nodal       n
+eThElPower               eV/K           real      nodal       n
+hThElPower               eV/K           real      nodal       n
+eJoule                   W/cm^3         real      nodal       n
+hJoule                   W/cm^3         real      nodal       n
+ePowerFlux               W/cm^2         vector    nodal       n
+hPowerFlux               W/cm^2         vector    nodal       n
+ePeltier                 W/cm^3         real      nodal       n
+hPeltier                 W/cm^3         real      nodal       n
+RecombHeat               W/cm^3         real      nodal       n
+IQE                                     real      none        n
+ArtificialDiffusion                     real      nodal       n
+eNetRecombination        1/(s*cm^3)     real      nodal       n
+hNetRecombination        1/(s*cm^3)     real      nodal       n
+RegionIDs                               real      cell        n
+------------------------------------------------------------------
+
+Output directory      : output_gain_InGaN
+Output file format    : vtk
+Output file basename  : dd
+
+
+solving for : poisson electrons holes 
+using local scaling
+
+# Region barrier_n, AlGaN (x = 0.2)
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 2.99476  1  2
+    Ec = 2.99476, Nc = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.873372  1.48  2
+    Ev = -0.873372, Nv = 4.5182e+19 cm^-3
+    m_dos = 1.48, v_th = 9.60037e+06 cm/s
+  Eg = 3.86813, Ef0 = 2.94382, ni = 1.06221e-13
+
+# Region barrier_p, AlGaN (x = 0.2)
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 2.99476  1  2
+    Ec = 2.99476, Nc = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.873372  1.48  2
+    Ev = -0.873372, Nv = 4.5182e+19 cm^-3
+    m_dos = 1.48, v_th = 9.60037e+06 cm/s
+  Eg = 3.86813, Ef0 = -0.759508, ni = 1.0851e-13
+
+# Region n_layer, GaN
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 2.72727  1  2
+    Ec = 2.72727, Nc = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.71033  1.6  2
+    Ev = -0.71033, Nv = 5.0787e+19 cm^-3
+    m_dos = 1.6, v_th = 9.23334e+06 cm/s
+  Eg = 3.4376, Ef0 = 2.68975, ni = 4.58675e-10
+
+# Region p_layer, GaN
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 2.72727  1  2
+    Ec = 2.72727, Nc = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.71033  1.6  2
+    Ev = -0.71033, Nv = 5.0787e+19 cm^-3
+    m_dos = 1.6, v_th = 9.23334e+06 cm/s
+  Eg = 3.4376, Ef0 = -0.604312, ni = 4.75169e-10
+
+# Region well, InGaN (x = 0.15)
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 2.25789  1  2
+    Ec = 2.25789, Nc = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.59783  1.51  2
+    Ev = -0.59783, Nv = 4.65627e+19 cm^-3
+    m_dos = 1.51, v_th = 9.50452e+06 cm/s
+  Eg = 2.85572, Ef0 = 2.17179, ni = 3.50035e-05
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for efa_el (efaschroedinger)
+MPI: rank 0 of communicator with size 1
+MPI: solver parallelized on 1 processes
+
+*** Warning: found unused options in block Solver: eigen_solver_tolerance, fermi_level, guess, solver
+
+*** Warning: found unused options in block Solver: eigen_solver_tolerance, fermi_level, guess, solver
+Symmetry of k space: linear
+k-space initialized
+
+Available solution variables:
+------------------------------------------------------------------
+Name                     Units          Type      Association Plot
+------------------------------------------------------------------
+ProbabilityDensity       1/cm^2         n-tuple   nodal       n
+EigenEnergy              eV             n-tuple   none        n
+Occupation                              n-tuple   none        n
+EigenEnergyOnMesh        eV             n-tuple   nodal       n
+EnvelopeFunctions                       n-tuple   nodal       n
+RegionIDs                               real      cell        n
+------------------------------------------------------------------
+
+Output directory      : output_gain_InGaN
+Output file format    : vtk
+Output file basename  : efa_el
+
+Number of bands: 1
+Degeneracy: 2
+
+
+# Region well, InGaN (x = 0.15)
+  single-band 
+
+
+*** Warning: found unused options in block Module (efaschroedinger): carriers
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for efa_hl (efaschroedinger)
+MPI: rank 0 of communicator with size 1
+MPI: solver parallelized on 1 processes
+
+*** Warning: found unused options in block Solver: eigen_solver_tolerance, fermi_level, guess, solver
+
+*** Warning: found unused options in block Solver: eigen_solver_tolerance, fermi_level, guess, solver
+Symmetry of k space: linear
+k-space initialized
+
+Available solution variables:
+------------------------------------------------------------------
+Name                     Units          Type      Association Plot
+------------------------------------------------------------------
+ProbabilityDensity       1/cm^2         n-tuple   nodal       n
+EigenEnergy              eV             n-tuple   none        n
+Occupation                              n-tuple   none        n
+EigenEnergyOnMesh        eV             n-tuple   nodal       n
+EnvelopeFunctions                       n-tuple   nodal       n
+RegionIDs                               real      cell        n
+------------------------------------------------------------------
+
+Output directory      : output_gain_InGaN
+Output file format    : vtk
+Output file basename  : efa_hl
+
+Number of bands: 1
+Degeneracy: 2
+
+
+# Region well, InGaN (x = 0.15)
+  single-band 
+
+
+*** Warning: found unused options in block Module (efaschroedinger): carriers
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for optics (opticskp)
+MPI: rank 0 of communicator with size 1
+MPI: solver parallelized on 1 processes
+
+Calculating transitions between efa_el, el -> efa_hl, hl
+
+Setting up k-space integration
+  Doing Gamma point calculation
+  Symmetry of k space: Gamma
+  cell volume for normalization : 1 nm
+
+Available solution variables:
+------------------------------------------------------------------
+Name                     Units          Type      Association Plot
+------------------------------------------------------------------
+OpticalPower             W              real      none        n
+Recombination            1/s            real      none        n
+PeakEnergy               eV             real      none        n
+RegionIDs                               real      cell        n
+------------------------------------------------------------------
+
+Output directory      : output_gain_InGaN
+Output file format    : dat
+Output file basename  : optics
+
+
+# Region well, InGaN (x = 0.15)
+  KxP 8x8
+    L = -2.23505 M = -0.7725 N = -1.46255 P0 = 0.480363
+    m_c = 1
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for sweep_bias (sweep)
+MPI: rank 0 of communicator with size 1
+MPI: solver parallelized on 1 processes
+
+*** Warning: Sweep: The variable $Vbias is not defined.
+
+Output directory      : output_gain_InGaN
+Output file format    : vtk
+Output file basename  : sweep_bias
+
+
+
+*** Warning: found unused options in block Module (sweep): save_result
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+We solve: sweep_bias 
+
+>>>>------------------------------- (sweep_bias) -------------------------------
+
+*** Warning: Sweep: The variable $Vbias is not defined.
+  Ramping to sweep value $Vbias = 2.5
+
+*** Warning: dd has never been solved before ramping.
+
+*** Warning: efa_el has never been solved before ramping.
+
+*** Warning: efa_hl has never been solved before ramping.
+
+*** Warning: optics has never been solved before ramping.
+  Trying $Vbias = 2.5
+
+  >>>>---------------------------------- (dd) ----------------------------------
+    Solving equilibrium
+    it 1, |du| = 12784.4, |r| = 34024.2  alpha = 0.00195312
+    it 2, |du| = 12759.4, |r| = 33990.9  alpha = 0.000976562
+    it 3, |du| = 11594.7, |r| = 29959.6  alpha = 0.000976562
+    it 4, |du| = 8584.92, |r| = 29609.4  alpha = 0.000976562
+    it 5, |du| = 5202.17, |r| = 29371  alpha = 0.00195312
+    it 6, |du| = 159.502, |r| = 24810.4  alpha = 0.03125
+    it 7, |du| = 11.1621, |r| = 13747.4  alpha = 0.210073
+    it 8, |du| = 6.54338, |r| = 5288.6  alpha = 0.5
+    it 9, |du| = 4.41731, |r| = 546.088  alpha = 1
+    it 10, |du| = 1.82516, |r| = 4.75997  alpha = 1
+    it 11, |du| = 1.04891, |r| = 0.222636  alpha = 1
+    it 12, |du| = 0.57466, |r| = 0.0392494  alpha = 1
+    it 13, |du| = 0.175624, |r| = 0.00216775  alpha = 1
+    it 14, |du| = 0.0141376, |r| = 8.35415e-06  alpha = 1
+
+    iterations: 15, |du| = 8.49145e-05, |r| = 1.91108e-10
+    Equilibrium done
+
+  Solve time: 0h 0m 0.88s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: eigen_solver_tolerance, fermi_level, solver
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (11):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+      2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (11):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+      2.25907 2.25907 2.25906 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+      2.25907 2.25906 2.25906 2.25906 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (11):
+      2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 6.0899 
+      6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.33s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: eigen_solver_tolerance, fermi_level, solver
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      -0.597834 -0.597834 -0.597834 -0.597834 -0.597834 -0.597834 -0.597834 -0.597833 
+      -0.597833 -0.597833 -0.597833 -0.597833 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (24):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -0.597834 
+      -0.597834 -0.597833 -0.597833 -0.597833 -0.597833 -0.597832 -0.597832 -0.597832 
+      -0.597831 -0.597831 -0.597831 -0.597831 -0.59783 -0.59783 -0.59783 -0.59783 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (26):
+      -0.597834 -0.597833 -0.597833 -0.597833 -0.597833 -0.597833 -0.597833 -0.597833 
+      -0.597833 -0.597833 -0.597833 -0.597832 -0.597832 -0.597832 -0.597832 -0.597832 
+      -0.597832 -0.597831 -0.597831 -0.597831 -0.597831 -0.597831 -0.597831 -0.597831 
+      -0.59783 -0.59783 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (23):
+      -4.43702 -4.45582 -4.46117 -4.5684 -4.58833 -4.67787 -4.70222 -4.7154 
+      -4.73152 -0.597833 -0.597833 -0.597833 -0.597833 -0.597832 -0.597832 -0.597832 
+      -0.597831 -0.597831 -0.597831 -0.59783 -0.59783 -0.59783 -0.59783 
+
+
+  Solve time: 0h 0m 0.11s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.29s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 2.6
+  Trying $Vbias = 2.6
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 3.04246e-09, |r| = 1.23443e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.069s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.059s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 2.7
+  Trying $Vbias = 2.7
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.77268e-14, |r| = 1.12606e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 2.8
+  Trying $Vbias = 2.8
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.0325e-14, |r| = 1.12171e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 2.9
+  Trying $Vbias = 2.9
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.02949e-14, |r| = 1.12396e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 3
+  Trying $Vbias = 3
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.0325e-14, |r| = 1.12171e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 3.1
+  Trying $Vbias = 3.1
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.02949e-14, |r| = 1.12396e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.065s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 3.2
+  Trying $Vbias = 3.2
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.0325e-14, |r| = 1.12171e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 3.3
+  Trying $Vbias = 3.3
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.02949e-14, |r| = 1.12396e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 3.4
+  Trying $Vbias = 3.4
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.0325e-14, |r| = 1.12171e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 3.5
+  Trying $Vbias = 3.5
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.02949e-14, |r| = 1.12396e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.058s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 3.6
+  Trying $Vbias = 3.6
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.0325e-14, |r| = 1.12171e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.058s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 3.7
+  Trying $Vbias = 3.7
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.02949e-14, |r| = 1.12396e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 3.8
+  Trying $Vbias = 3.8
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.0325e-14, |r| = 1.12171e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.071s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.058s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.29s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 3.9
+  Trying $Vbias = 3.9
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.02949e-14, |r| = 1.12396e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 4
+  Trying $Vbias = 4
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.0325e-14, |r| = 1.12171e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 4.1
+  Trying $Vbias = 4.1
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.02949e-14, |r| = 1.12396e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 4.2
+  Trying $Vbias = 4.2
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.0325e-14, |r| = 1.12171e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.065s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.058s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 4.3
+  Trying $Vbias = 4.3
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.02949e-14, |r| = 1.12396e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.065s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.058s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.033s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 4.4
+  Trying $Vbias = 4.4
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.0325e-14, |r| = 1.12171e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vbias = 4.5
+  Trying $Vbias = 4.5
+
+  >>>>---------------------------------- (dd) ----------------------------------
+
+    iterations: 1, |du| = 1.02949e-14, |r| = 1.12396e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+
+  Solve time: 0h 0m 0.064s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_el) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+
+  Solve time: 0h 0m 0.057s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (efa_hl) --------------------------------
+
+*** Warning: found unused options in block Solver: fermi_level
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+
+  Solve time: 0h 0m 0.032s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>-------------------------------- (optics) --------------------------------
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (8):
+      2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 2.25907 
+
+    Solver package used in Eigensolver: 
+    converged eigenenergies (12):
+      2.25907 2.25907 5.72048 5.80556 5.92914 5.96664 6.02921 6.03618 
+      6.0899 6.09825 6.11705 6.12239 
+
+    (EFA) Solving for k = (0.00000 0.00000 0.00000 ) /nm
+    Copying matrices to SLEPc... done
+    Solver package used in Eigensolver: 
+    converged eigenenergies (10):
+      -4.05925 -4.14433 -4.26791 -4.30541 -4.36798 -4.37495 -4.42867 -4.43702 
+      -4.45582 -4.46117 
+
+    calculation of matrix elements for dipole optical transition...
+    Total emitted power     : 8.8247e-178 W
+    Total recombination rate: 1.93895e-159 1/s
+    Peak emission energy    : 3.49498 eV
+
+  Solve time: 0h 0m 0.28s
+  <<<<--------------------------------------------------------------------------
+
+Solve time: 0h 0m 11s
+<<<<----------------------------------------------------------------------------
+
+Total solve time: 0h 0m 11s
+Simulation finished.
+
+58 warnings during run
+0 errors detected
+
+
+Log end: Sun May 11 23:45:49 2025
+
+

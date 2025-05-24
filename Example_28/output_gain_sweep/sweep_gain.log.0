@@ -1,0 +1,57 @@
+
+Log start: Sun May 11 23:45:02 2025
+
+
+Writing log to output_gain_sweep/sweep_gain.log.0
+tiberCAD release 3.4.0 (rev. 5645, x86_64-linux)
+
+Input file: sweep_gain.tib
+
+Initialize global simulation options
+  Simulation temperature: 300 K
+  Database search path  : /usr/local/tibercad-3.4.0/materials
+  Module library path   : .:/usr/local/tibercad-3.4.0/x86_64-linux/modules
+  Log file              : output_gain_sweep/sweep_gain.log.0
+
+Parallelization
+  MPI communicator size : 1
+  OMP threads           : 16
+
+
+Setup mesh
+  Reading mesh file 'quantum_well_2D2.msh ...
+    mesh reading time: 0h 0m 0.0018s
+    mesh preparation time: 0h 0m 0.00083s
+    bd_regions preparation time: 0h 0m 2e-05s
+
+    mesh units          : 1e-06 m
+    mesh dimension      :       2
+    number of nodes     :     704
+    number of elements  :    1314
+    number of subdomains:       5
+    number of boundaries:       2
+
+Create materials ...
+  AlGaAs is an alloy with components AlAs and GaAs and molar fraction of AlAs 0.3.
+    BondMap progress  done.
+    BondMap progress  done.
+    BondMap progress  done.
+  Added material AlGaAs for region 'p_layer' (mesh regions 1)
+    (using datafile /usr/local/tibercad-3.4.0/materials/AlGaAs.dat)
+    alloy with 0.3 AlAs, 0.7 GaAs
+    Bravais lattice : face-centered cubic (zb)
+    a = 5.6556
+    x growth direction : (1 0 0)
+    y growth direction : (0 1 0)
+    z growth direction : (0 0 1)
+    Euler angles : alpha = 0, beta = 0, gamma = 0
+
+*** ERROR: Physical region 'barrier' is not consistent with mesh.
+
+0 warnings during run
+1 errors detected
+
+
+Log end: Sun May 11 23:45:02 2025
+
+

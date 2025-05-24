@@ -1,0 +1,367 @@
+
+Log start: Thu Mar 27 18:55:09 2025
+
+
+Writing log to output_gain_vs_bias/quantum_well_2D_gain2.log.0
+tiberCAD release 3.4.0 (rev. 5645, x86_64-linux)
+
+Input file: quantum_well_2D_gain2.tib
+
+Initialize global simulation options
+  Simulation temperature: 300 K
+  Database search path  : /usr/local/tibercad-3.4.0/materials
+  Module library path   : .:/usr/local/tibercad-3.4.0/x86_64-linux/modules
+  Log file              : output_gain_vs_bias/quantum_well_2D_gain2.log.0
+
+Parallelization
+  MPI communicator size : 1
+  OMP threads           : 16
+
+
+Setup mesh
+  Reading mesh file 'quantum_well_2D2.msh ...
+    mesh reading time: 0h 0m 0.0018s
+    mesh preparation time: 0h 0m 0.00082s
+    bd_regions preparation time: 0h 0m 2.1e-05s
+
+    mesh units          : 1e-06 m
+    mesh dimension      :       2
+    number of nodes     :     704
+    number of elements  :    1314
+    number of subdomains:       4
+    number of boundaries:       2
+
+Create materials ...
+  AlGaAs is an alloy with components AlAs and GaAs and molar fraction of AlAs 0.3.
+    BondMap progress  done.
+    BondMap progress  done.
+    BondMap progress  done.
+  Added material AlGaAs for region 'p_layer' (mesh regions 1)
+    (using datafile /usr/local/tibercad-3.4.0/materials/AlGaAs.dat)
+    alloy with 0.3 AlAs, 0.7 GaAs
+    Bravais lattice : face-centered cubic (zb)
+    a = 5.6556
+    x growth direction : (1 0 0)
+    y growth direction : (0 1 0)
+    z growth direction : (0 0 1)
+    Euler angles : alpha = 0, beta = 0, gamma = 0
+  AlGaAs is an alloy with components AlAs and GaAs and molar fraction of AlAs 0.3.
+    BondMap progress  done.
+    BondMap progress  done.
+    BondMap progress  done.
+  Added material AlGaAs for region 'barrier' (mesh regions 2)
+    (using datafile /usr/local/tibercad-3.4.0/materials/AlGaAs.dat)
+    alloy with 0.3 AlAs, 0.7 GaAs
+    Bravais lattice : face-centered cubic (zb)
+    a = 5.6556
+    x growth direction : (1 0 0)
+    y growth direction : (0 1 0)
+    z growth direction : (0 0 1)
+    Euler angles : alpha = 0, beta = 0, gamma = 0
+    BondMap progress  done.
+  Added material GaAs for region 'well' (mesh regions 3)
+    (using datafile /usr/local/tibercad-3.4.0/materials/GaAs.dat)
+    Bravais lattice : face-centered cubic (zb)
+    a = 5.65325
+    x growth direction : (1 0 0)
+    y growth direction : (0 1 0)
+    z growth direction : (0 0 1)
+    Euler angles : alpha = 0, beta = 0, gamma = 0
+  AlGaAs is an alloy with components AlAs and GaAs and molar fraction of AlAs 0.3.
+    BondMap progress  done.
+    BondMap progress  done.
+    BondMap progress  done.
+  Added material AlGaAs for region 'n_layer' (mesh regions 4)
+    (using datafile /usr/local/tibercad-3.4.0/materials/AlGaAs.dat)
+    alloy with 0.3 AlAs, 0.7 GaAs
+    Bravais lattice : face-centered cubic (zb)
+    a = 5.6556
+    x growth direction : (1 0 0)
+    y growth direction : (0 1 0)
+    z growth direction : (0 0 1)
+    Euler angles : alpha = 0, beta = 0, gamma = 0
+Creation of materials done.
+
+Setting up simulation of type 'driftdiffusion' ...
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/driftdiffusion.so)
+  Creating bulk models... 
+    Region: p_layer
+    (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/ddbulk_default.so)
+    Region: barrier
+    Region: well
+    Region: n_layer
+
+Setting up simulation of type 'efaschroedinger' ...
+  Creating bulk models... 
+    Region: well
+
+Setting up simulation of type 'efaschroedinger' ...
+  Creating bulk models... 
+    Region: well
+
+Setting up simulation of type 'opticskp' ...
+  Creating bulk models... 
+    Region: well
+
+Setting up simulation of type 'sweep' ...
+
+Setting up bulk models ...
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/permittivity_constant.so)
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/band_properties.so)
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/mobility_constant.so)
+    (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/density_of_states_bulk.so)
+
+*** Warning: found unused options in block Physics: effective_mass
+
+Setting up lower dimensional (boundary) models ...
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for driftdiffusion (driftdiffusion)
+MPI: rank 0 of communicator with size 1
+MPI: solver parallelized on 1 processes
+
+Available solution variables:
+------------------------------------------------------------------
+Name                     Units          Type      Association Plot
+------------------------------------------------------------------
+Ec                       eV             real      nodal       n
+Ev                       eV             real      nodal       n
+eQFermi                  eV             real      nodal       n
+hQFermi                  eV             real      nodal       n
+ElPotential              V              real      nodal       n
+Ec0                      eV             real      nodal       n
+Ev0                      eV             real      nodal       n
+Eg                       eV             real      nodal       n
+ConductionBands          eV             n-tuple   cell        n
+ValenceBands             eV             n-tuple   cell        n
+eDensity                 cm^-3          real      nodal       n
+hDensity                 cm^-3          real      nodal       n
+ChargeDensity            cm^-3          real      nodal       n
+eMobility                cm^2/(V*s)     real      nodal       n
+hMobility                cm^2/(V*s)     real      nodal       n
+eConductivity            S/cm           real      nodal       n
+hConductivity            S/cm           real      nodal       n
+ElField                  V/cm           vector    cell        n
+Polarization             C/m^2          vector    cell        n
+Displacement             C/m^2          vector    cell        n
+CurrentDensity           A/cm^2         vector    cell        n
+eCurrentDensity          A/cm^2         vector    cell        n
+hCurrentDensity          A/cm^2         vector    cell        n
+IonizedDonors            cm^-3          real      nodal       n
+IonizedAcceptors         cm^-3          real      nodal       n
+IonizedElectronTraps     cm^-3          real      nodal       n
+IonizedHoleTraps         cm^-3          real      nodal       n
+eThElPower               eV/K           real      nodal       n
+hThElPower               eV/K           real      nodal       n
+eJoule                   W/cm^3         real      nodal       n
+hJoule                   W/cm^3         real      nodal       n
+ePowerFlux               W/cm^2         vector    nodal       n
+hPowerFlux               W/cm^2         vector    nodal       n
+ePeltier                 W/cm^3         real      nodal       n
+hPeltier                 W/cm^3         real      nodal       n
+RecombHeat               W/cm^3         real      nodal       n
+IQE                                     real      none        n
+ArtificialDiffusion                     real      nodal       n
+eNetRecombination        1/(s*cm^3)     real      nodal       n
+hNetRecombination        1/(s*cm^3)     real      nodal       n
+RegionIDs                               real      cell        n
+------------------------------------------------------------------
+
+Output directory      : output_gain_vs_bias
+Output file format    : vtk
+Output file basename  : driftdiffusion
+
+
+solving for : poisson electrons holes 
+using local scaling
+
+# Region barrier, AlGaAs (x = 0.3)
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 0.937711  0.0919  2
+    Ec = 0.937711, Nc = 6.99111e+17 cm^-3
+    m_dos = 0.0919, v_th = 3.85266e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.959  1  2
+    Ev = -0.959, Nv = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Eg = 1.89671, Ef0 = 0.0356383, ni = 490.234
+
+# Region n_layer, AlGaAs (x = 0.3)
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 0.937711  0.0919  2
+    Ec = 0.937711, Nc = 6.99111e+17 cm^-3
+    m_dos = 0.0919, v_th = 3.85266e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.959  1  2
+    Ev = -0.959, Nv = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Eg = 1.89671, Ef0 = 1.08182, ni = 96.9437
+
+# Region p_layer, AlGaAs (x = 0.3)
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 0.937711  0.0919  2
+    Ec = 0.937711, Nc = 6.99111e+17 cm^-3
+    m_dos = 0.0919, v_th = 3.85266e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.959  1  2
+    Ev = -0.959, Nv = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Eg = 1.89671, Ef0 = -1.03319, ni = 240.642
+
+# Region well, GaAs
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 0.622482  0.067  2
+    Ec = 0.622482, Nc = 4.35196e+17 cm^-3
+    m_dos = 0.067, v_th = 4.51213e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.8  1  2
+    Ev = -0.8, Nv = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Eg = 1.42248, Ef0 = -0.0363492, ni = 3.72236e+06
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for efa_el (efaschroedinger)
+MPI: rank 0 of communicator with size 1
+MPI: solver parallelized on 1 processes
+
+*** Warning: found unused options in block Solver: eigen_solver_tolerance, guess, solver
+
+*** Warning: found unused options in block Solver: eigen_solver_tolerance, guess, solver
+Symmetry of k space: linear
+k-space initialized
+
+Available solution variables:
+------------------------------------------------------------------
+Name                     Units          Type      Association Plot
+------------------------------------------------------------------
+ProbabilityDensity       1/cm^2         n-tuple   nodal       n
+EigenEnergy              eV             n-tuple   none        n
+Occupation                              n-tuple   none        n
+EigenEnergyOnMesh        eV             n-tuple   nodal       n
+EnvelopeFunctions                       n-tuple   nodal       n
+RegionIDs                               real      cell        n
+------------------------------------------------------------------
+
+Output directory      : output_gain_vs_bias
+Output file format    : vtk
+Output file basename  : efa_el
+
+Number of bands: 1
+Degeneracy: 2
+
+
+# Region well, GaAs
+  single-band  Mass = 0.067
+
+
+*** Warning: found unused options in block Module (efaschroedinger): carriers
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for efa_hl (efaschroedinger)
+MPI: rank 0 of communicator with size 1
+MPI: solver parallelized on 1 processes
+
+*** Warning: found unused options in block Solver: eigen_solver_tolerance, guess, solver
+
+*** Warning: found unused options in block Solver: eigen_solver_tolerance, guess, solver
+Symmetry of k space: linear
+k-space initialized
+
+Available solution variables:
+------------------------------------------------------------------
+Name                     Units          Type      Association Plot
+------------------------------------------------------------------
+ProbabilityDensity       1/cm^2         n-tuple   nodal       n
+EigenEnergy              eV             n-tuple   none        n
+Occupation                              n-tuple   none        n
+EigenEnergyOnMesh        eV             n-tuple   nodal       n
+EnvelopeFunctions                       n-tuple   nodal       n
+RegionIDs                               real      cell        n
+------------------------------------------------------------------
+
+Output directory      : output_gain_vs_bias
+Output file format    : vtk
+Output file basename  : efa_hl
+
+Number of bands: 1
+Degeneracy: 2
+
+
+# Region well, GaAs
+  single-band 
+
+
+*** Warning: found unused options in block Module (efaschroedinger): carriers
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for optics (opticskp)
+MPI: rank 0 of communicator with size 1
+MPI: solver parallelized on 1 processes
+
+Calculating transitions between efa_el, el -> efa_hl, hl
+
+Setting up k-space integration
+  Doing Gamma point calculation
+  Symmetry of k space: Gamma
+  cell volume for normalization : 1 nm
+
+Available solution variables:
+------------------------------------------------------------------
+Name                     Units          Type      Association Plot
+------------------------------------------------------------------
+OpticalPower             W              real      none        n
+Recombination            1/s            real      none        n
+PeakEnergy               eV             real      none        n
+RegionIDs                               real      cell        n
+------------------------------------------------------------------
+
+Output directory      : output_gain_vs_bias
+Output file format    : dat
+Output file basename  : optics
+
+
+# Region well, GaAs
+  KxP 8x8
+    L = -1.2183 M = -1.93 N = -1.8983 P0 = 0.623741
+    m_c = 1
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for sweep_bias (sweep)
+MPI: rank 0 of communicator with size 1
+MPI: solver parallelized on 1 processes
+
+*** ERROR: Sweep: Simulation dd not found.
+
+7 warnings during run
+1 errors detected
+
+
+Log end: Thu Mar 27 18:55:09 2025
+
+

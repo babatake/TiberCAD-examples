@@ -1,0 +1,269 @@
+
+Log start: Thu Mar 27 19:25:42 2025
+
+
+Writing log to debug_step2_output/debug_step3.log.0
+tiberCAD release 3.4.0 (rev. 5645, x86_64-linux)
+
+Input file: debug_step3.tib
+
+Initialize global simulation options
+  Simulation temperature: 300 K
+  Database search path  : /usr/local/tibercad-3.4.0/materials
+  Module library path   : .:/usr/local/tibercad-3.4.0/x86_64-linux/modules
+  Log file              : debug_step2_output/debug_step3.log.0
+
+Parallelization
+  MPI communicator size : 1
+  OMP threads           : 16
+
+
+Setup mesh
+  Reading mesh file 'quantum_well_2D2.msh ...
+    mesh reading time: 0h 0m 0.002s
+    mesh preparation time: 0h 0m 0.00082s
+    bd_regions preparation time: 0h 0m 2e-05s
+
+    mesh units          : 1e-06 m
+    mesh dimension      :       2
+    number of nodes     :     704
+    number of elements  :    1314
+    number of subdomains:       4
+    number of boundaries:       2
+
+Create materials ...
+  AlGaAs is an alloy with components AlAs and GaAs and molar fraction of AlAs 0.3.
+    BondMap progress  done.
+    BondMap progress  done.
+    BondMap progress  done.
+  Added material AlGaAs for region 'p_layer' (mesh regions 1)
+    (using datafile /usr/local/tibercad-3.4.0/materials/AlGaAs.dat)
+    alloy with 0.3 AlAs, 0.7 GaAs
+    Bravais lattice : face-centered cubic (zb)
+    a = 5.6556
+    x growth direction : (1 0 0)
+    y growth direction : (0 1 0)
+    z growth direction : (0 0 1)
+    Euler angles : alpha = 0, beta = 0, gamma = 0
+  AlGaAs is an alloy with components AlAs and GaAs and molar fraction of AlAs 0.3.
+    BondMap progress  done.
+    BondMap progress  done.
+    BondMap progress  done.
+  Added material AlGaAs for region 'barrier' (mesh regions 2)
+    (using datafile /usr/local/tibercad-3.4.0/materials/AlGaAs.dat)
+    alloy with 0.3 AlAs, 0.7 GaAs
+    Bravais lattice : face-centered cubic (zb)
+    a = 5.6556
+    x growth direction : (1 0 0)
+    y growth direction : (0 1 0)
+    z growth direction : (0 0 1)
+    Euler angles : alpha = 0, beta = 0, gamma = 0
+    BondMap progress  done.
+  Added material GaAs for region 'well' (mesh regions 3)
+    (using datafile /usr/local/tibercad-3.4.0/materials/GaAs.dat)
+    Bravais lattice : face-centered cubic (zb)
+    a = 5.65325
+    x growth direction : (1 0 0)
+    y growth direction : (0 1 0)
+    z growth direction : (0 0 1)
+    Euler angles : alpha = 0, beta = 0, gamma = 0
+  AlGaAs is an alloy with components AlAs and GaAs and molar fraction of AlAs 0.3.
+    BondMap progress  done.
+    BondMap progress  done.
+    BondMap progress  done.
+  Added material AlGaAs for region 'n_layer' (mesh regions 4)
+    (using datafile /usr/local/tibercad-3.4.0/materials/AlGaAs.dat)
+    alloy with 0.3 AlAs, 0.7 GaAs
+    Bravais lattice : face-centered cubic (zb)
+    a = 5.6556
+    x growth direction : (1 0 0)
+    y growth direction : (0 1 0)
+    z growth direction : (0 0 1)
+    Euler angles : alpha = 0, beta = 0, gamma = 0
+Creation of materials done.
+
+Setting up simulation of type 'driftdiffusion' ...
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/driftdiffusion.so)
+  Creating bulk models... 
+    Region: p_layer
+    (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/ddbulk_default.so)
+    Region: barrier
+    Region: well
+    Region: n_layer
+
+Setting up bulk models ...
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/permittivity_constant.so)
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/band_properties.so)
+  (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/driftdiffusion/mobility_constant.so)
+    (using /usr/local/tibercad-3.4.0/x86_64-linux/modules/density_of_states_bulk.so)
+
+Setting up lower dimensional (boundary) models ...
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for dd (driftdiffusion)
+MPI: rank 0 of communicator with size 1
+MPI: solver parallelized on 1 processes
+
+Available solution variables:
+------------------------------------------------------------------
+Name                     Units          Type      Association Plot
+------------------------------------------------------------------
+Ec                       eV             real      nodal       n
+Ev                       eV             real      nodal       n
+eQFermi                  eV             real      nodal       n
+hQFermi                  eV             real      nodal       n
+ElPotential              V              real      nodal       n
+Ec0                      eV             real      nodal       n
+Ev0                      eV             real      nodal       n
+Eg                       eV             real      nodal       n
+ConductionBands          eV             n-tuple   cell        n
+ValenceBands             eV             n-tuple   cell        n
+eDensity                 cm^-3          real      nodal       n
+hDensity                 cm^-3          real      nodal       n
+ChargeDensity            cm^-3          real      nodal       n
+eMobility                cm^2/(V*s)     real      nodal       n
+hMobility                cm^2/(V*s)     real      nodal       n
+eConductivity            S/cm           real      nodal       n
+hConductivity            S/cm           real      nodal       n
+ElField                  V/cm           vector    cell        n
+Polarization             C/m^2          vector    cell        n
+Displacement             C/m^2          vector    cell        n
+CurrentDensity           A/cm^2         vector    cell        y
+eCurrentDensity          A/cm^2         vector    cell        n
+hCurrentDensity          A/cm^2         vector    cell        n
+IonizedDonors            cm^-3          real      nodal       n
+IonizedAcceptors         cm^-3          real      nodal       n
+IonizedElectronTraps     cm^-3          real      nodal       n
+IonizedHoleTraps         cm^-3          real      nodal       n
+eThElPower               eV/K           real      nodal       n
+hThElPower               eV/K           real      nodal       n
+eJoule                   W/cm^3         real      nodal       n
+hJoule                   W/cm^3         real      nodal       n
+ePowerFlux               W/cm^2         vector    nodal       n
+hPowerFlux               W/cm^2         vector    nodal       n
+ePeltier                 W/cm^3         real      nodal       n
+hPeltier                 W/cm^3         real      nodal       n
+RecombHeat               W/cm^3         real      nodal       n
+IQE                                     real      none        n
+ArtificialDiffusion                     real      nodal       n
+eNetRecombination        1/(s*cm^3)     real      nodal       n
+hNetRecombination        1/(s*cm^3)     real      nodal       n
+RegionIDs                               real      cell        n
+------------------------------------------------------------------
+
+Output directory      : debug_step2_output
+Output file format    : vtk
+Output file basename  : dd
+
+
+solving for : poisson electrons holes 
+using local scaling
+
+# Region barrier, AlGaAs (x = 0.3)
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 0.937711  0.0919  2
+    Ec = 0.937711, Nc = 6.99111e+17 cm^-3
+    m_dos = 0.0919, v_th = 3.85266e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.959  1  2
+    Ev = -0.959, Nv = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Eg = 1.89671, Ef0 = 0.0356383, ni = 490.234
+
+# Region n_layer, AlGaAs (x = 0.3)
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 0.937711  0.0919  2
+    Ec = 0.937711, Nc = 6.99111e+17 cm^-3
+    m_dos = 0.0919, v_th = 3.85266e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.959  1  2
+    Ev = -0.959, Nv = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Eg = 1.89671, Ef0 = 0.993582, ni = 291.295
+
+# Region p_layer, AlGaAs (x = 0.3)
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 0.937711  0.0919  2
+    Ec = 0.937711, Nc = 6.99111e+17 cm^-3
+    m_dos = 0.0919, v_th = 3.85266e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.959  1  2
+    Ev = -0.959, Nv = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Eg = 1.89671, Ef0 = -0.956082, ni = 433.744
+
+# Region well, GaAs
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 0.622482  0.067  2
+    Ec = 0.622482, Nc = 4.35196e+17 cm^-3
+    m_dos = 0.067, v_th = 4.51213e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -0.8  1  2
+    Ev = -0.8, Nv = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Eg = 1.42248, Ef0 = -0.0363492, ni = 3.72236e+06
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+We solve: dd 
+
+>>>>----------------------------------- (dd) -----------------------------------
+  Solving equilibrium
+  it 1, |du| = 478264, |r| = 3.44226e+09  alpha = 0.000976562
+  it 2, |du| = 298.507, |r| = 6.62562e+08  alpha = 1
+  it 3, |du| = 99.5098, |r| = 1.27604e+08  alpha = 1
+  it 4, |du| = 33.1846, |r| = 2.47325e+07  alpha = 1
+  it 5, |du| = 11.1062, |r| = 5.08805e+06  alpha = 1
+  it 6, |du| = 5.32142, |r| = 1.25806e+06  alpha = 1
+  it 7, |du| = 4.19049, |r| = 358907  alpha = 1
+  it 8, |du| = 7.15041, |r| = 117153  alpha = 1
+  it 9, |du| = 7.90103, |r| = 42288.1  alpha = 1
+  it 10, |du| = 8.78208, |r| = 15454.5  alpha = 1
+  it 11, |du| = 7.24888, |r| = 5670.75  alpha = 1
+  it 12, |du| = 7.39347, |r| = 2083.16  alpha = 1
+  it 13, |du| = 6.96933, |r| = 764.82  alpha = 1
+  it 14, |du| = 6.47664, |r| = 279.944  alpha = 1
+  it 15, |du| = 4.15867, |r| = 101.715  alpha = 1
+  it 16, |du| = 2.47071, |r| = 36.6423  alpha = 1
+  it 17, |du| = 3.0736, |r| = 13.4665  alpha = 1
+  it 18, |du| = 3.62878, |r| = 5.33661  alpha = 1
+  it 19, |du| = 3.85217, |r| = 2.24408  alpha = 1
+  it 20, |du| = 2.72088, |r| = 1.10262  alpha = 1
+  it 21, |du| = 1.90893, |r| = 0.308113  alpha = 1
+  it 22, |du| = 0.752997, |r| = 0.0138186  alpha = 1
+  it 23, |du| = 0.0382236, |r| = 2.90456e-05  alpha = 1
+
+  iterations: 24, |du| = 6.55797e-05, |r| = 6.69421e-10
+  Equilibrium done
+
+  Writing state to debug_step2_output/dd.tsv
+
+Solve time: 0h 0m 0.88s
+<<<<----------------------------------------------------------------------------
+
+Total solve time: 0h 0m 0.89s
+Simulation finished.
+
+0 warnings during run
+0 errors detected
+
+
+Log end: Thu Mar 27 19:25:42 2025
+
+
