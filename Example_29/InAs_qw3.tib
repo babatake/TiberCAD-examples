@@ -1,0 +1,147 @@
+Variables {
+    Vbias = 2.0
+}
+
+Device {
+  meshfile = InAs_qw.msh
+  mesh_units = 1e-10
+  dimension = 1
+
+  x-growth-direction = (1, 0, 0)
+  y-growth-direction = (0, 1, 0)
+  z-growth-direction = (0, 0, 1)
+
+  Region QW {
+    material = InAs
+    Doping {
+      density = 1e21
+      type = donor
+      level = 0.01
+    }
+  }
+
+  Region barrier_left {
+    material = GaAs
+    Doping {
+      density = 5e17
+      type = acceptor
+      level = 0.1
+    }
+  }
+
+  Region barrier_right {
+    material = GaAs
+    Doping {
+      density = 5e17
+      type = donor
+      level = 0.01
+    }
+  }
+
+  Region device_left {
+    material = GaAs
+    Doping {
+      density = 5e17
+      type = acceptor
+      level = 0.1
+    }
+  }
+
+  Region device_right {
+    material = GaAs
+    Doping {
+      density = 5e17
+      type = donor
+      level = 0.01
+    }
+  }
+
+  Cluster Quantum {
+    regions = (barrier_left, barrier_right, QW)
+  }
+
+  Atomistic tb {
+    reference_region = barrier_left
+    regions = Quantum
+    passivation = yes
+    print = (xyb, xyz, gen, tgn)
+  }
+
+  Parallel {
+    mpi_processes_per_mesh = 1
+  }
+}
+
+Module driftdiffusion {
+  name = driftdiffusion
+  coupling = poisson
+  enforce_local_charge_neutrality = true
+
+  plot = (Ec, Ev, eQFermi, hQFermi, ElField, eDensity, hDensity, Polarization)
+
+  Solver linesearch {
+    relative_tolerance = 1e-14
+    absolute_tolerance = 1e-50
+    step_tolerance = 1e-3
+    max_step = 1.0
+    max_iterations = 30
+  }
+
+  Contact anode {
+    type = ohmic
+    voltage = 0.0
+  }
+
+  Contact cathode {
+    type = ohmic
+    voltage = $Vbias
+  }
+}
+
+Module empirical_tb {
+  name = tb
+  regions = Quantum
+  atomistic_structure = tb
+  potential_simulation = driftdiffusion
+  fermi_level_model = driftdiffusion     # ✅ Fermi準位を連携！
+  Harrison_scaling = false
+  dataset = Jancu
+
+  plot = (tbstates)
+
+  Solver {
+    solver = upt_lanczos
+    guess_valence = -0.5
+    guess_conduction = 0.0
+    num_valence_eigenvalues = 4
+    num_conduction_eigenvalues = 4
+  }
+}
+
+Module opticstb {
+    name = opticstb
+    regions = Quantum
+
+    plot = (optical_spectrum_k_0, matrix_elements)
+    output_format = grace
+
+    initial_state_model = tb
+    final_state_model = tb
+
+    Emin = 0.0
+    Emax = 4.5
+    dE = 0.001
+
+    line_shape = gaussian
+
+    compute_strengths = true
+}
+
+
+Simulation {
+  temperature = 300
+  solve = (driftdiffusion, tb, opticstb)
+  resultpath = output_tb_gain
+  output_format = grace
+}
+
